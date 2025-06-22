@@ -1,0 +1,49 @@
+{{/* Shortcode: menu-table Usage: {{< menu-table >}} Renders a styled menu table
+for the Menu section. */}}
+
+<style>
+    .menu-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff7e6;
+        font-family: "Segoe UI", "Arial Rounded MT Bold", "Comic Sans MS",
+            cursive, sans-serif;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(255, 165, 0, 0.08);
+    }
+    .menu-table th,
+    .menu-table td {
+        border: 1.5px solid #ffb84d;
+        padding: 0.7em 1em;
+        text-align: left;
+    }
+    .menu-table th {
+        background: #ffe0b3;
+        color: #b35900;
+        font-size: 1.15em;
+    }
+    .menu-table tr:nth-child(even) {
+        background: #fff2cc;
+    }
+</style>
+
+<table class="menu-table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range site.Data.menu }}
+        <tr>
+            <td>{{ .item }}</td>
+            <td>{{ .qty }}</td>
+            <td>{{ .price }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

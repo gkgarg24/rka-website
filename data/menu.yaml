@@ -1,0 +1,29 @@
+# rka-website/data/menu.yaml
+
+- item: Plain Mathi
+  qty: 400gm
+  price: "$12.99"
+- item: Kasuri Methi Mathi
+  qty: 400gm
+  price: "$14.99"
+- item: Atta Ladoo (With nuts of your choice) made with Homemade Ghee
+  qty: 500gm
+  price: "$16.99"
+- item: Besan Ladoo (With nuts of your choice) made with Homemade Ghee
+  qty: 500gm
+  price: "$16.99"
+- item: Aloo ke Papad
+  qty: 400gm
+  price: "$14.99"
+- item: Sabudana ke Papad
+  qty: 200gm
+  price: "$12.99"
+- item: Rice Crackers
+  qty: 400gm
+  price: "$14.99"
+- item: Fresh Samosas (Only on order)/Samosa
+  qty: 4
+  price: "$6.00"
+- item: Homemade Gajar Halwa (100gm) Made with Pure desi Ghee (Only on order)
+  qty: 400gm
+  price: "$12.99"

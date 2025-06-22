@@ -1,0 +1,205 @@
+<!doctype html>
+<html
+    lang="en-us"
+    dir="ltr"
+>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>From Our Kitchen | Risha&#39;s Kitchen Adventures</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+    </head>
+    <body>
+        <header><h1>Risha&#39;s Kitchen Adventures</h1>
+
+  <nav>
+    <ul style="display: flex; flex-direction: row; gap: 2rem; list-style: none; padding: 0; margin: 0; justify-content: center; align-items: center;">
+    <li style="margin: 0; padding: 0;">
+      <a style="text-decoration: none; color: #333; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s;" href="/">Home</a>
+    </li>
+    <li style="margin: 0; padding: 0;">
+      <a style="text-decoration: none; color: #333; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s;" href="/menu/">Menu</a>
+    </li>
+    <li style="margin: 0; padding: 0;">
+      <a style="text-decoration: none; color: #333; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s;" href="/photos/">Photos</a>
+    </li>
+    <li style="margin: 0; padding: 0;">
+      <a style="text-decoration: none; color: #333; font-weight: 500; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s;" href="/about/">About</a>
+    </li>
+    </ul>
+  </nav>
+
+</header>
+        <main>
+  <h1>From Our Kitchen</h1>
+  <p>Welcome to our photo gallery! Here you&rsquo;ll find images of our delicious products and specialties.</p>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"/>
+<style>
+.photo-carousel-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+}
+.glider-contain {
+  width: 100%;
+}
+.glider {
+  margin: 0 auto;
+}
+.glider img {
+  display: block;
+  margin: 0 auto;
+  max-height: 520px;
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  background: #fff7e6;
+}
+.glider-prev, .glider-next {
+  color: #ff9800;
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.glider-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+.glider-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffe0b3;
+  margin: 0 4px;
+  cursor: pointer;
+  border: 1.5px solid #ffb84d;
+}
+.glider-dot.active {
+  background: #ff9800;
+}
+</style>
+
+<div class="photo-carousel-container">
+  <div class="glider-contain">
+    <button class="glider-prev" aria-label="Previous">&lt;</button>
+    <div class="glider">
+      
+        
+          <div>
+            <img src="/images/alu_papad.jpeg" alt="alu_papad.jpeg" loading="lazy"/>
+          </div>
+        
+      
+        
+          <div>
+            <img src="/images/besan_laddu.jpeg" alt="besan_laddu.jpeg" loading="lazy"/>
+          </div>
+        
+      
+        
+          <div>
+            <img src="/images/chawal_wadi.jpeg" alt="chawal_wadi.jpeg" loading="lazy"/>
+          </div>
+        
+      
+        
+          <div>
+            <img src="/images/chiwda_namkeen.jpeg" alt="chiwda_namkeen.jpeg" loading="lazy"/>
+          </div>
+        
+      
+        
+          <div>
+            <img src="/images/plain_matthii.jpeg" alt="plain_matthii.jpeg" loading="lazy"/>
+          </div>
+        
+      
+        
+          <div>
+            <img src="/images/sabudana_papad.jpeg" alt="sabudana_papad.jpeg" loading="lazy"/>
+          </div>
+        
+      
+    </div>
+    <button class="glider-next" aria-label="Next">&gt;</button>
+    <div role="tablist" class="glider-dots"></div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var gliderElem = document.querySelector('.glider');
+  if (gliderElem) {
+    var glider = new Glider(gliderElem, {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.glider-dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      },
+      duration: 0.5,
+      rewind: true,
+      scrollLock: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    
+    let autoplayDelay = 3000;
+    let autoplay = setInterval(function() {
+      if (document.querySelector('.glider')) {
+        glider.scrollItem('next');
+      }
+    }, autoplayDelay);
+
+    
+    gliderElem.addEventListener('mouseenter', function() {
+      clearInterval(autoplay);
+    });
+    gliderElem.addEventListener('mouseleave', function() {
+      autoplay = setInterval(function() {
+        glider.scrollItem('next');
+      }, autoplayDelay);
+    });
+  }
+});
+</script>
+
+
+  
+</main>
+        <footer><p>Copyright 2025. All rights reserved.</p>
+</footer>
+    </body>
+</html>

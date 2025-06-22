@@ -1,0 +1,22 @@
+rka-website/layouts/shortcodes/gallery.html
+{{/*
+  Hugo Shortcode: gallery
+  Usage: {{< gallery dir="images" >}}
+  Displays all images from the specified directory under /static.
+*/}}
+
+{{ $dir := .Get "dir" | default "images" }}
+{{ $staticDir := printf "static/%s" $dir }}
+{{ $publicDir := printf "/%s" $dir }}
+
+{{ $images := readDir $staticDir }}
+
+<div class="gallery" style="display: flex; flex-wrap: wrap; gap: 16px;">
+  {{ range $images }}
+    {{ if or (hasSuffix .Name ".jpg") (hasSuffix .Name ".jpeg") (hasSuffix .Name ".png") (hasSuffix .Name ".gif") (hasSuffix .Name ".webp") }}
+      <div class="gallery-item" style="flex: 0 1 220px; margin-bottom: 16px;">
+        <img src="{{ printf "%s/%s" $publicDir .Name }}" alt="{{ .Name }}" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" loading="lazy" />
+      </div>
+    {{ end }}
+  {{ end }}
+</div>

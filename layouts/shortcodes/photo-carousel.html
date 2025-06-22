@@ -1,0 +1,130 @@
+{{/*
+  Hugo Shortcode: photo-carousel
+  Usage: {{< photo-carousel dir="images" >}}
+  Displays a simple image carousel from the specified directory under /static.
+*/}}
+
+{{ $dir := .Get "dir" | default "images" }}
+{{ $staticDir := printf "static/%s" $dir }}
+{{ $publicDir := printf "/%s" $dir }}
+{{ $images := readDir $staticDir }}
+
+<!-- Glider.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"/>
+<style>
+.photo-carousel-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #232323;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+}
+.glider-contain {
+  width: 100%;
+}
+.glider {
+  margin: 0 auto;
+}
+.glider img {
+  display: block;
+  margin: 0 auto;
+  max-height: 520px;
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  background: #fff7e6;
+}
+.glider-prev, .glider-next {
+  color: #ff9800;
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.glider-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+.glider-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffe0b3;
+  margin: 0 4px;
+  cursor: pointer;
+  border: 1.5px solid #ffb84d;
+}
+.glider-dot.active {
+  background: #ff9800;
+}
+</style>
+
+<div class="photo-carousel-container">
+  <div class="glider-contain">
+    <button class="glider-prev" aria-label="Previous">&lt;</button>
+    <div class="glider">
+      {{ range $images }}
+        {{ if or (hasSuffix .Name ".jpg") (hasSuffix .Name ".jpeg") (hasSuffix .Name ".png") (hasSuffix .Name ".gif") (hasSuffix .Name ".webp") }}
+          <div>
+            <img src="{{ printf "%s/%s" $publicDir .Name }}" alt="{{ .Name }}" loading="lazy"/>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+    <button class="glider-next" aria-label="Next">&gt;</button>
+    <div role="tablist" class="glider-dots"></div>
+  </div>
+</div>
+
+<!-- Glider.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var gliderElem = document.querySelector('.glider');
+  if (gliderElem) {
+    var glider = new Glider(gliderElem, {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.glider-dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      },
+      duration: 0.5,
+      rewind: true,
+      scrollLock: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    // Autoplay functionality
+    let autoplayDelay = 3000;
+    let autoplay = setInterval(function() {
+      if (document.querySelector('.glider')) {
+        glider.scrollItem('next');
+      }
+    }, autoplayDelay);
+
+    // Pause on hover
+    gliderElem.addEventListener('mouseenter', function() {
+      clearInterval(autoplay);
+    });
+    gliderElem.addEventListener('mouseleave', function() {
+      autoplay = setInterval(function() {
+        glider.scrollItem('next');
+      }, autoplayDelay);
+    });
+  }
+});
+</script>

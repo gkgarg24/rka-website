@@ -1,0 +1,29 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = "Risha's Kitchen Adventures"
+theme = "sun-dried"
+
+[menu]
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 10
+
+[[menu.main]]
+identifier = "menu"
+name = "Menu"
+url = "/menu/"
+weight = 20
+
+[[menu.main]]
+identifier = "photos"
+name = "Photos"
+url = "/photos/"
+weight = 50
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 60
