@@ -1,9 +1,15 @@
 ---
-title: "About"
+title: "About Me"
 date: 2024-06-09T00:00:00Z
 draft: false
 description: "Learn more about Risha's Kitchen Adventures"
 ---
+
+{{< owner-photo >}}
+
+<div style="text-align:center; margin-bottom:2rem;">
+    <strong>Risha, Founder &amp; Chef</strong>
+</div>
 
 Welcome to Risha's Kitchen Adventures!
 

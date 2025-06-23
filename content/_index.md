@@ -6,7 +6,3 @@ description: "Welcome to Risha's Kitchen Adventures - Authentic Indian Snacks & 
 ---
 
 {{< home-hero >}}
-
-## Explore Our Specialties
-
-Browse our menu, view our photo gallery, or learn more about our story using the navigation above!

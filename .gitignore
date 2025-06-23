@@ -1,0 +1,34 @@
+# Hugo build output
+public/
+
+# Hugo cache
+resources/_gen/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node modules (if using npm/yarn for assets)
+node_modules/
+
+# Log files
+*.log
+
+# VSCode settings
+.vscode/
+
+# Netlify deploy settings (optional, if you want to ignore)
+# .netlify/
+
+# Backup files
+*~
+*.swp
+*.swo
+
+# Ignore local Hugo environment config
+.env
+.env.*
+
+# Ignore IDE/project files
+.idea/
+*.iml
